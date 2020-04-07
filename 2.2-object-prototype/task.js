@@ -1,14 +1,40 @@
 function getAnimalSound(animal) {
-    // код для задачи №1 писать здесь
-    // return animalSound;
+    let animalSound;
+
+    if (animal == undefined) {
+        return null;
+    } else {
+        animalSound = animal.sound;
+    }
+    
+    return animalSound;
 }
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
-    // return averageMark
+    let average;
+
+    if (marks.length == 0) {
+        return 0;
+    } else {
+        let sum = 0;
+
+        for (let i = 0; i < marks.length; i++) {
+            sum += marks[i]
+        }
+
+        average = sum / marks.length;
+    }
+
+    let roundedAverage = Math.round(average);
+    
+    return roundedAverage;
 }
 
 function checkBirthday(birthday) {
-    // код для задачи №3 писать здесь
-    // return verdict
+    let now = Date.now();
+    let userBirthday = Date.parse(birthday);
+    let diff = now - userBirthday;
+    let age = diff / 31536000000;
+
+    return (age >= 18) ? true : false;
 }
