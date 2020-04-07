@@ -19,33 +19,22 @@ function getAverageMark(marks) {
     let averageMark;
 
     if (marks.length == 0) {
-        averageMark = 0;
+       return 0;
     } else if (marks.length > 5 ) {
         console.log('Оценок больше пяти');
         marks.splice(5);
-        
-        for (let i = 0; i < marks.length; i++) {
-            sum += marks[i];
-        }
-
-        averageMark = sum / marks.length;
-    } else {
-        for (let i = 0; i < marks.length; i++) {
-            sum += marks[i];
-        }
-
-        averageMark = sum / marks.length;
     }
+
+    for (let i = 0; i < marks.length; i++) {
+        sum += marks[i];
+    }
+    
+    averageMark = sum / marks.length;
     
     return averageMark;
 }
 
 function askDrink(name, dateOfBirthday) {
-    let result;
-    let today = new Date();
-    let year = today.getFullYear() - dateOfBirthday.getFullYear();
-
-    result = (year >= 18) ? `Не желаете ли олд-фэшн, ${name}?` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
-
-    return result;
+    let year = new Date().getFullYear() - dateOfBirthday.getFullYear();
+    return (year >= 18) ? `Не желаете ли олд-фэшн, ${name}?` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
 }
