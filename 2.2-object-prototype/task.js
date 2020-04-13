@@ -19,22 +19,22 @@ function getAverageMark(marks) {
         let sum = 0;
 
         for (let i = 0; i < marks.length; i++) {
-            sum += Number(marks[i]);
+            sum += parseInt(marks[i]);
         }
 
         average = sum / marks.length;
     }
 
-    let roundedAverage = Math.round(average);
+    const roundedAverage = Math.round(average);
     
     return roundedAverage;
 }
 
 function checkBirthday(birthday) {
-    let now = Date.now();
-    let userBirthday = Date.parse(birthday);
-    let diff = now - userBirthday;
-    let age = diff / 31536000000;
+    const now = Date.now();
+    const userBirthday = Date.parse(birthday);
+    const diff = now - userBirthday;
+    const age = diff / 31536000000;
 
-    return (age >= 18) ? true : false;
+    return age >= 18;
 }
